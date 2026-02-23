@@ -115,6 +115,21 @@ nav {
     color: var(--text-gray);
 }
 
+.profile-btn-change,
+.profile-btn-edit,
+.profile-btn-delete {
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color var(--transition), transform 0.2s ease;
+    margin-right: 0.5rem;
+}
+
 /* Main Content */
 main,
 body > div {
@@ -353,10 +368,22 @@ td button {
     border: 1px solid var(--border);
 }
 
-.alert-success,
+.alert-success {
+    background-color: #e6ffed;
+    color: #065f46;
+    border-color: #bbf7d0;
+}
+
 .alert-error {
-    background-color: var(--primary-light);
-    color: var(--text-dark);
+    background-color: #fff1f2;
+    color: #86181d;
+    border-color: #fecaca;
+}
+
+.field-error {
+    color: #b00020;
+    margin-top: 0.35rem;
+    font-size: 0.95rem;
 }
 
 /* Responsive */

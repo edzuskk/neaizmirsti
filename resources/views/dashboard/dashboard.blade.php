@@ -43,6 +43,11 @@
                             <button type="submit" style="background-color: #006713">Izdarīts</button>
                         </form>
                         @endif
+                        @if ($reminder->is_done == true)
+                        <form action="{{ route('renew.form', $reminder->id) }}" method="GET" style="display:inline;">
+                            <button type="submit" style="background-color: #1e45f495;">Atjaunot</button>
+                        </form>
+                        @endif
                     </td>
                 </tr>
                 @endforeach

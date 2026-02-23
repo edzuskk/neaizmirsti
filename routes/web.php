@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\ReminderController;
-use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\ProfileController;
 use App\Models\Reminder;
 
 
@@ -37,4 +37,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/edit/{reminder}', [ReminderController::class, 'edit'])->name('edit');
     Route::post('/edit/{reminder}', [ReminderController::class, 'update'])->name('update');
     Route::patch('/dashboard/{reminder}/markAsDone', [ReminderController::class, 'markAsDone'])->name('markAsDone');
+    Route::get('/profile', [ProfileController::class, 'showProfile'])->name('profile');
+    Route::post('/profile/edit', [ProfileController::class, 'editProfile'])->name('profile.edit');
+    Route::get('/profile/edit', [ProfileController::class, 'showEditForm'])->name('profile.editForm');
+    Route::post('/profile/delete', [ProfileController::class, 'deleteProfile'])->name('profile.delete');
+    Route::get('/change', [ProfileController::class, 'showChangeForm'])->name('profile.changeForm');
+    Route::post('/profile/change', [ProfileController::class, 'changePassword'])->name('profile.changePassword');
+    Route::get('/renew/{reminder}', [ReminderController::class, 'renewForm'])->name('renew.form');
+    Route::patch('/renew/{reminder}', [ReminderController::class, 'renew'])->name('renew');
 });

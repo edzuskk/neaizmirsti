@@ -12,9 +12,7 @@
             @auth
                 <li><a href="/dashboard">Jūsu neaizmirstuļi</a>&nbsp |</li>
                 <li class="helper"><a href="/helper">Palīgs</a>&nbsp |</li>
-                <li class="nav-user">
-                    <span>{{ Auth::user()->name }} &nbsp | </span>
-                </li>
+                <li class="nav-user"><a href="/profile">{{ Auth::user()->name }}</a> &nbsp |</li>
                 <li>
                     <form method="POST" action="/logout" style="display:inline;"> 
                         @csrf

@@ -69,5 +69,28 @@ class ReminderController extends Controller
 
         return redirect('/dashboard')->with('error', 'Neizdevās atzīmēt atgādinājumu.');
     }
+
+    public function renewForm(Reminder $reminder){
+        return view("dashboard.renew", ['reminder' => $reminder]);
+    }
+    public function renew(Request $request, Reminder $reminder)
+    {
+        $validated = $request->validate([
+            'date' => ['required'],
+            'time' => ['required'],
+        ]);
+
+        if ($reminder->user_id === auth()->id()) {
+            $reminder->update([
+                'is_done' => false,
+                'date' => $validated['date'],
+                'time' => $validated['time'],
+            ]);
+
+            return redirect('/dashboard')->with('success', 'Atgādinājums atjaunots.');
+        }
+
+        return redirect('/dashboard')->with('error', 'Neizdevās atjaunot atgādinājumu.');
+    }
     
 }
